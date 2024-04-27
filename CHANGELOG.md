@@ -1,3 +1,94 @@
+## [11.10.8](https://github.com/sweetalert2/sweetalert2/compare/v11.10.7...v11.10.8) (2024-04-17)
+
+
+### Bug Fixes
+
+* prevent popup content from being selected on double click on the container ([#2722](https://github.com/sweetalert2/sweetalert2/issues/2722)) ([7910325](https://github.com/sweetalert2/sweetalert2/commit/79103251ddbc664171cc6538320d57ca72a36a89))
+
+## [11.10.7](https://github.com/sweetalert2/sweetalert2/compare/v11.10.6...v11.10.7) (2024-03-22)
+
+
+### Bug Fixes
+
+* improve performance by pulling querySelector out of the loop ([#2719](https://github.com/sweetalert2/sweetalert2/issues/2719)) ([9f94517](https://github.com/sweetalert2/sweetalert2/commit/9f9451789d1efab3f0dc5a7f841af0f17619b2f4))
+
+## [11.10.6](https://github.com/sweetalert2/sweetalert2/compare/v11.10.5...v11.10.6) (2024-03-05)
+
+
+### Bug Fixes
+
+* allow single quotes in default email validator ([#2717](https://github.com/sweetalert2/sweetalert2/issues/2717)) ([e4b7a3a](https://github.com/sweetalert2/sweetalert2/commit/e4b7a3a9a19a5e9009dbe594022ab338ad5bb21c))
+
+## [11.10.5](https://github.com/sweetalert2/sweetalert2/compare/v11.10.4...v11.10.5) (2024-02-05)
+
+
+### Bug Fixes
+
+* show the browser validation message for input ([#2704](https://github.com/sweetalert2/sweetalert2/issues/2704)) ([68d6d35](https://github.com/sweetalert2/sweetalert2/commit/68d6d35b3a285fe50ee0857966885fdc1368f0f8))
+
+## [11.10.4](https://github.com/sweetalert2/sweetalert2/compare/v11.10.3...v11.10.4) (2024-01-23)
+
+
+### Bug Fixes
+
+* iconColor for success and error icons ([#2703](https://github.com/sweetalert2/sweetalert2/issues/2703)) ([ebb0c39](https://github.com/sweetalert2/sweetalert2/commit/ebb0c396adcde822b16c19fa08e98e4ccdc73000))
+
+## [11.10.3](https://github.com/sweetalert2/sweetalert2/compare/v11.10.2...v11.10.3) (2024-01-11)
+
+
+### Bug Fixes
+
+* rm unnecessary transform styles on success icon ([69c2372](https://github.com/sweetalert2/sweetalert2/commit/69c237281563dad020af3bb0771d695ccf6aff14)), closes [#2698](https://github.com/sweetalert2/sweetalert2/issues/2698)
+
+## [11.10.2](https://github.com/sweetalert2/sweetalert2/compare/v11.10.1...v11.10.2) (2023-12-27)
+
+
+### Bug Fixes
+
+* strict types domUtils.js ([3a963d4](https://github.com/sweetalert2/sweetalert2/commit/3a963d4dddd9bd00f6acdb9dd9803469532649dd))
+
+## [11.10.1](https://github.com/sweetalert2/sweetalert2/compare/v11.10.0...v11.10.1) (2023-11-19)
+
+
+### Bug Fixes
+
+* resolve swal promise when its dismissed by another swal ([#2689](https://github.com/sweetalert2/sweetalert2/issues/2689)) ([0b4329b](https://github.com/sweetalert2/sweetalert2/commit/0b4329b334500419dff7a0b2c4268ad8e49d21c9))
+
+# [11.10.0](https://github.com/sweetalert2/sweetalert2/compare/v11.9.1...v11.10.0) (2023-11-14)
+
+
+### Features
+
+* add animation: boolean param ([#2687](https://github.com/sweetalert2/sweetalert2/issues/2687)) ([048fc92](https://github.com/sweetalert2/sweetalert2/commit/048fc92280cfc7a42dbf58920f03fc2a2f09c922))
+
+## [11.9.1](https://github.com/sweetalert2/sweetalert2/compare/v11.9.0...v11.9.1) (2023-11-14)
+
+
+### Bug Fixes
+
+* inputValidator + input: 'file' ([#2686](https://github.com/sweetalert2/sweetalert2/issues/2686)) ([25197ec](https://github.com/sweetalert2/sweetalert2/commit/25197ec6028d92a725c181a63b2cd8895a03dbe0))
+
+# [11.9.0](https://github.com/sweetalert2/sweetalert2/compare/v11.8.0...v11.9.0) (2023-10-30)
+
+
+### Features
+
+* automatically show/hide title/content/footer when their innerHTML is changing ([#2680](https://github.com/sweetalert2/sweetalert2/issues/2680)) ([3339dea](https://github.com/sweetalert2/sweetalert2/commit/3339dea3407e6be0d09fde724f6162ad546fc73f))
+
+# [11.8.0](https://github.com/sweetalert2/sweetalert2/compare/v11.7.32...v11.8.0) (2023-10-28)
+
+
+### Features
+
+* support input date, datetime-local, time, week, month, search ([#2679](https://github.com/sweetalert2/sweetalert2/issues/2679)) ([3fce8ac](https://github.com/sweetalert2/sweetalert2/commit/3fce8ac4a2ad8dbe85e55fdb3dc28c66707d43fc))
+
+## [11.7.32](https://github.com/sweetalert2/sweetalert2/compare/v11.7.31...v11.7.32) (2023-10-06)
+
+
+### Bug Fixes
+
+* strict types popup-click-handler.js ([e5af701](https://github.com/sweetalert2/sweetalert2/commit/e5af701d8372e1327dc2f01d42d3fd8f27517dfd))
+
 ## [11.7.31](https://github.com/sweetalert2/sweetalert2/compare/v11.7.30...v11.7.31) (2023-09-26)
 
 

@@ -9,7 +9,7 @@ describe('Inputs', () => {
     const spy = cy.spy(console, 'error')
     Swal.fire({ input: 'invalid-input-type' })
     expect(spy).to.be.calledWith(
-      'SweetAlert2: Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "invalid-input-type"'
+      'SweetAlert2: Unexpected type of input! Expected month | week | time | datetime-local | date | search | url | tel | number | password | email | text | file | range | select | radio | checkbox | textarea, got "invalid-input-type"'
     )
   })
 
@@ -76,6 +76,21 @@ describe('Inputs', () => {
       expect(document.activeElement).to.equal(Swal.getConfirmButton())
       done()
     })
+  })
+
+  it('browser validation + browser validation message', (done) => {
+    SwalWithoutAnimation.fire({ input: 'text', inputAttributes: { pattern: '[0-9]+' } })
+
+    Swal.getInput().value = 'a'
+    Swal.clickConfirm()
+    setTimeout(() => {
+      expect(isVisible(Swal.getValidationMessage())).to.be.true
+      // Chrome: Please match the format requested.
+      // Firefox: Please match the requested format.
+      // Safari: Match the requested format.
+      expect(Swal.getValidationMessage().textContent.indexOf('atch the') !== -1).to.be.true
+      done()
+    }, TIMEOUT)
   })
 
   it('input email + built-in email validation', (done) => {
@@ -570,20 +585,44 @@ describe('Validation', () => {
     }, TIMEOUT)
   })
 
+  it('default email validator: test@example.com', (done) => {
+    defaultInputValidators.email('test@example.com').then((data) => {
+      expect(data).be.undefined
+      done()
+    })
+  })
+
+  it(`default email validator: o'test@example.com`, (done) => {
+    defaultInputValidators.email(`o'test@example.com`).then((data) => {
+      expect(data).be.undefined
+      done()
+    })
+  })
+
+  it(`default email validator: invalid email`, (done) => {
+    defaultInputValidators.email(`invalid email@example.com`).then((data) => {
+      expect(data).to.equal('Invalid email address')
+      done()
+    })
+  })
+
   it('default URL validator: https://google.com', (done) => {
-    defaultInputValidators.url('https://google.com').then(() => {
+    defaultInputValidators.url('https://google.com').then((data) => {
+      expect(data).be.undefined
       done()
     })
   })
 
   it('default URL validator: http://g.co', (done) => {
-    defaultInputValidators.url('http://g.co').then(() => {
+    defaultInputValidators.url('http://g.co').then((data) => {
+      expect(data).be.undefined
       done()
     })
   })
 
   it('default URL validator: http://foo.localhost/', (done) => {
-    defaultInputValidators.url('http://foo.localhost/').then(() => {
+    defaultInputValidators.url('http://foo.localhost/').then((data) => {
+      expect(data).be.undefined
       done()
     })
   })

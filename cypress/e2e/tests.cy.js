@@ -61,6 +61,22 @@ describe('Miscellaneous tests', function () {
     expect(isHidden(Swal.getFooter())).to.be.true
   })
 
+  it('should show and hide title, content and footer when dynamically update their innerHTML', (done) => {
+    Swal.fire({})
+    expect(isHidden(Swal.getTitle())).to.be.true
+    expect(isHidden(Swal.getHtmlContainer())).to.be.true
+    expect(isHidden(Swal.getFooter())).to.be.true
+    Swal.getTitle().textContent = 'title'
+    Swal.getHtmlContainer().textContent = 'content'
+    Swal.getFooter().textContent = 'footer'
+    setTimeout(() => {
+      expect(isVisible(Swal.getTitle())).to.be.true
+      expect(isVisible(Swal.getHtmlContainer())).to.be.true
+      expect(isVisible(Swal.getFooter())).to.be.true
+      done()
+    })
+  })
+
   it('modal width', () => {
     Swal.fire({ width: 300 })
     expect(Swal.getPopup().style.width).to.equal('300px')
@@ -470,6 +486,56 @@ describe('Miscellaneous tests', function () {
     })
   })
 
+  it('swal dismissed by another swal should resolve', (done) => {
+    Swal.fire().then((result) => {
+      expect(result).to.eql({
+        isDismissed: true,
+      })
+      done()
+    })
+    Swal.fire()
+  })
+
+  it('swal dismissed by another swal should resolve even when another swal was called after clickConfirm()', (done) => {
+    Swal.fire().then((result) => {
+      expect(result).to.eql({
+        value: true,
+        isConfirmed: true,
+        isDenied: false,
+        isDismissed: false,
+      })
+      done()
+    })
+    Swal.clickConfirm()
+    Swal.fire()
+  })
+
+  it('animation enabled', (done) => {
+    Swal.fire({
+      animation: true,
+      didOpen: () => {
+        setTimeout(() => {
+          expect(Array.from(Swal.getPopup().classList)).to.contain('swal2-show')
+          expect(Array.from(Swal.getContainer().classList)).not.to.contain('swal2-noanimation')
+          done()
+        }, SHOW_CLASS_TIMEOUT)
+      },
+    })
+  })
+
+  it('animation disabled', (done) => {
+    Swal.fire({
+      animation: false,
+      didOpen: () => {
+        setTimeout(() => {
+          expect(Array.from(Swal.getPopup().classList)).not.to.contain('swal2-show')
+          expect(Array.from(Swal.getContainer().classList)).to.contain('swal2-noanimation')
+          done()
+        }, SHOW_CLASS_TIMEOUT)
+      },
+    })
+  })
+
   it('params validation', () => {
     expect(Swal.isValidParameter('title')).to.be.true
     expect(Swal.isValidParameter('foobar')).to.be.false
@@ -492,7 +558,7 @@ describe('Miscellaneous tests', function () {
     expect(isHidden(Swal.getFooter())).to.be.true
   })
 
-  it('visual apperarance', () => {
+  it('visual appearance', () => {
     Swal.fire({
       padding: '2em',
       background: 'red',
